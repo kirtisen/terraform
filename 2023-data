@@ -1,0 +1,54 @@
+## If you want to run multiple instance in one code then you can use this file .
+
+
+#-----------> Terraform Version and Provider <-----------
+
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
+}
+
+# -----------> Provider and aws access , secret access key <-----------
+
+provider "aws" {
+  region     = "us-east-1"
+  access_key = "AxxxxxxxxxxxxxxQ"
+  secret_key = "jxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxD"
+}
+
+# ----------------> resources <-------------------
+
+resource "aws_instance" "s1" {
+  ami                       = "ami-0xxxxxxxxxxxxxxx7"
+  instance_type             = "t2.micro"
+  tags= {
+        Name = "server1"
+}
+
+}
+# ----------------> resources for 2nd instance <-------------------
+
+resource "aws_instance" "k3" {
+  ami                       = "ami-0xxxxxxxxxxxxxxx7"
+  instance_type             = "t2.micro"
+  tags= {
+        Name = "server2"
+}
+
+}
+
+# ----------------> resources for 3rd instance <-------------------
+
+
+resource "aws_instance" "k2" {
+  ami                       = "ami-0xxxxxxxxxxxxxxxxx7"
+  instance_type             = "t2.micro"
+  tags= {
+        Name = "server3"
+}
+
+}
